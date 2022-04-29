@@ -1,0 +1,336 @@
+\documentclass[a4paper,landscape,10pt]{cheatsheet}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{bookmark}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{float}
+
+%addtolength{\oddsidemargin}{.875in}
+%addtolength{\evensidemargin}{.875in}
+%addtolength{\textwidth}{1.75in}
+%addtolength{\topmargin}{.875in}
+%\addtolength{\textheight}{1.75in}
+
+\title{Resúmen Vibraciones y Ondas}
+\author{David Caro}
+\date{04-04-2022}
+
+\pdfinfo{%
+  /Title    (Resúmen Vibraciones y Ondas)
+  /Author   (David Caro)
+  /Creator  (David Caro)
+  /Producer (David Caro)
+  /Subject  (Física)
+  /Keywords ()
+}
+
+\begin{document}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Movimiento Armónico Simple}
+\textbf{Ecuación del movimiento:}
+$\qquad \ddot{x}+\omega^2x=0$\\
+$\qquad \ddot{x}=-\omega^2x$\\
+
+\textbf{solución (coseno):}
+$\qquad x(t)=A\cos(\omega t+\theta)=$\\
+$\qquad \sqrt{x_0^2+\left(\frac{\dot x_0}{\omega}\right)^2}\cos\left[\omega t + \arctan\left(-\frac{\dot x_0}{\omega x_0}\right)\right]$\\
+Frecuencia: $\nu=\frac{\omega}{2\pi}$\\
+Periodo: \\
+$\qquad T=\frac{2\pi}{\omega}=\frac{1}{\nu}$\\
+
+\textbf{Superposición de oscilaciones, misma frecuencia:}\\
+$\qquad x_1=A_1\cos\left(\omega t+\alpha_1\right)$\\
+$\qquad x_2=A_2\cos\left(\omega t+\alpha_2\right)$\\
+$\qquad x=A\cos\left(\omega t+\alpha\right)$\\
+$\qquad A=\sqrt{A_1^2+A_2^2+2A_{1}A_2\cos\left(\alpha_1+\alpha_2\right)}$\\
+$\qquad \alpha=\alpha_1+\arcsin\left(\frac{A_2}{A}\sin\left(\alpha_2-\alpha_1\right)\right)$\\
+O lo que es mucho más sencillo, en complejos:\\
+$\qquad z=e^{j\left(\omega t+\alpha_1\right)}\left[A_1+A_2e^{j\left(\alpha_2-\alpha_1\right)}\right]$\\
+Nota que hay dos partes, una estática y una que depende de $t$.\\
+Relación de Euler:\\
+$\qquad e^{i\theta}=\cos\theta+i\sen\theta$\\
+
+\textbf{Superposición de diferentes frecuencias, batidos:}\\
+El resultado es periódico sólo si:\\
+$\qquad n_1T_1=n_2T_2=T$\\
+Para misma amplitud:\\
+$\qquad x=2A \cos\left(\frac{\omega_1-\omega_2}{2}t\right) \cos\left(\frac{\omega_1+\omega_2}{2}t\right)$\\
+De donde cabe notar que la primera parte es la "portadora" de baja frecuencia y la segunda parte de alta frecuencia.\\
+El batido sucede cuando:\\
+$\qquad\lvert\omega_1-\omega_2\rvert\ll\omega_1+\omega_2$\\
+de periodo:\\
+$\qquad T=\frac{2\pi}{\lvert\omega_1-\omega_2\lvert}=\frac{2\pi}{\omega_{\text{beat}}}=\frac{1}{\nu_{\text{beat}}}=\frac{1}{\lvert \nu_1-\nu_2\rvert}$
+\\
+\textbf{Muelles:}\\
+Ley de newton:\\
+$\qquad m\frac{d^2x}{dt^2}+kx=0$\\
+Conservación de la energía:\\
+$\qquad\frac{1}{2}m\left(\frac{dx}{dt}\right)^2 + \frac{1}{2}kx^2 = E = \frac{1}{2}kA^2$
+Solución general:\\
+($\omega=\sqrt{\frac{k}{m}}$, $A$ y $\alpha$ dependen de las condiciones de contorno, son constantes de integración):\\
+$\qquad x=A\cos\left(\omega t+\alpha\right)$\\
+\textbf{Módulo de Young:}\\
+$\qquad F=-\frac{AY}{l_0}x = -kx$\\
+$\qquad T=2\pi\sqrt{\frac{ml_0}{AY}}=2\pi\sqrt{\frac{m}{k}}=\frac{2\pi}{\omega}=\frac{1}{\nu}$\\
+\textbf{Péndulo simple:}\\
+Periodo: $T=2\pi\sqrt{\frac{h}{g}}$\\
+Frecuencia: $\omega=\sqrt{\frac{g}{h}}$\\
+\textbf{Objeto flotante:}\\
+$\qquad\omega=\sqrt{\frac{g\rho A}{m}}$\\
+$\qquad T=2\pi\sqrt{\frac{m}{g\rho A}}=2\pi\sqrt{\frac{h}{g}}$\\
+siendo $A$ el area.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Modos normales}
+Dados dos elementos vibratorios, sacamos las ecuaciones diferenciales del movimiento (ej. dos péndulos conectados por un muelle):
+$\qquad \omega_m^2=\frac{k}{m},\quad\omega_p^2=\frac{g}{l}$\\
+$\qquad \ddot{x}_A=-\frac{g}{l}x_A-\frac{k}{m}(x_A-x_B)$\\
+$\qquad \ddot{x}_A+(\omega_p^2+\omega_m^2)x_A-\omega_m^2x_B=0$\\
+$\qquad \ddot{x}_B+(\omega_p^2+\omega_m^2)x_B-\omega_m^2x_A=0$\\
+Entonces suponemos que los dos elementos oscilan con la misma
+frecuencia (estas serán las frecuencias normales del sistema):\\
+$\qquad\ddot{x}_A=-\omega^2 x_A$\\
+$\qquad\ddot{x}_B=-\omega^2 x_B$\\
+Reemplazamos y resolvemos:\\
+$\qquad (-\omega^2+\omega_p^2+\omega_m^2)x_A-\omega_m^2x_B=0$\\
+$\qquad -\omega_m^2x_A+(-\omega^2+\omega_p^2+\omega_m^2)x_B=0$\\
+Usando la regla del determinante y la solucón para una ecuacion cuadrática:\\
+$\qquad (-\omega^2+\omega_p^2+\omega_m^2)^2 - \omega_p^2=0$\\
+$\qquad \omega^4-2(\omega_p^2+\omega_m^2)\omega^2 + ((\omega_p^2+\omega_m^2-\omega_m^4))=0$\\
+$\qquad \omega^2=\frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$\\
+$\qquad =\omega_p^2+\omega_m^2 \pm \sqrt{\omega_m^4}$\\
+$\qquad \omega^2=
+  \begin{cases}
+    \omega_p^2             \\
+    \omega_p^2+2\omega_m^2 \\
+  \end{cases}
+$
+
+Entonces, para cada solución, asumimos las diferentes coordenadas de la forma:\\
+$\qquad x_A=A\cos\omega t$\\
+$\qquad x_B=B\cos\omega t$\\
+
+Reemplazamos de nuevo (usando la primera ecuación es suficiente), ahora con $\omega$,
+$x_A$ y $x_B$, por ejemplo, para $\omega=\omega_p$ (los cosenos se marchan):\\
+$\qquad (-\omega_p^2+\omega_p^2+\omega_m^2)A-\omega_m^2B=0$\\
+$\qquad \omega_m^2A-\omega_m^2B=0$\\
+$\qquad A=\frac{\omega_m^2}{\omega_m^2}B$\\
+$\qquad A=B$\\
+
+Esto significa que las masas están \textbf{en fase y tienen la misma amplitud}.\\
+Y para la otra solución $\omega^2=\omega_p^2+2\omega_m^2$:\\
+$\qquad (-\omega_p^2-2\omega_m^2+\omega_p^2+\omega_m^2)A-\omega_m^2B=0$\\
+$\qquad -\omega_m^2A-\omega_m^2B=0$\\
+$\qquad A=-\frac{\omega_m^2}{\omega_m^2}B$\\
+$\qquad A=-B$\\
+En este segundo modo las masas están \textbf{en contrafase y tienen la misma amplitud}.\\
+\hfill\\
+\textbf{Para sacar las coordenadas normales}, tenemos las ecuaciones:\\
+$\qquad \ddot{q}=-\omega_n q\quad,n\in{0...N}$\\
+Donde $\omega_n$ es la frecuencia normal del modo $n$ y $N$ el número de modos normales. Y:\\
+$\qquad \ddot{q}=\sum_{n=0}^{N}\alpha_n\ddot{x}_n$\\
+Recordando que $\ddot{x}_i=-\omega_n^2x_i$ para cada modo, sustituyes esto en las ecuaciones del
+movimiento ($\ddot{x}_i=Ax_1+Bx_2...$), y entonces resuelves, usando el ejemplo anterior:\\
+$\qquad \ddot{q}=\alpha_1(-(\omega_p^2+\omega_m^2)x_A+\omega_m^2x_B)$\\
+$\qquad +\alpha_2(\omega_m^2x_A-(\omega_p^2+\omega_m^2)x_B)$\\
+$\qquad =(-\alpha_1\omega_p^2-\alpha_1\omega_m^2+\alpha_2\omega_m^2)x_A$\\
+$\qquad +(\alpha_1\omega_m^2-\alpha_2\omega_p^2-\alpha_2\omega_m^2)x_B$\\
+\hfill\\
+Para el modo $\omega=\omega_p$:\\
+$\qquad \begin{rcases}
+    -\alpha_1\omega_p^2x_A=(-\alpha_1(\omega_p^2+\omega_m^2)+\alpha_2\omega_m^2)x_A \\
+    -\alpha_2\omega_p^2x_B=(\alpha_1\omega_m^2-\alpha_2(\omega_p^2+\omega_m^2))x_B  \\
+  \end{rcases}
+$\\
+$\qquad \alpha_2\omega_m^2=\alpha_1\omega_m^2$\\
+$\qquad \alpha_2=\alpha_1$\\
+$\qquad q_1=x_A+x_B$\\
+\hfill\\
+Para el modo $\omega=\sqrt{\omega_p^2+2\omega_m^2}$:
+$\qquad \begin{rcases}
+    -\alpha_1(\omega_p^2+2\omega_m^2)=-\alpha_1(\omega_p^2+\omega_m^2)+\alpha_2\omega_m^2 \\
+    -\alpha_2(\omega_p^2+2\omega_m^2)=\alpha_1\omega_m^2-\alpha_2(\omega_p^2+\omega_m^2)  \\
+  \end{rcases}
+$\\
+$\qquad -\alpha_1\omega_p^2-2\alpha_1\omega_m^2=$\\
+$\qquad\qquad =-\alpha_1\omega_p^2-\alpha_1\omega_m^2+\alpha_2\omega_m^2$\\
+$\qquad -\alpha_1\omega_p^2-2\alpha_1\omega_m^2+\alpha_1\omega_p^2+\alpha_1\omega_m^2=\alpha_2\omega_m^2$\\
+$\qquad -\alpha_1\omega_m^2=\alpha_2\omega_m^2$\\
+$\qquad \alpha_1=-\alpha_2$\\
+$\qquad q_2=x_A-x_B$\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Oscilaciones amortiguadas y forzadas}
+\textbf{Oscilaciones amortiguadas}:\\
+Fuerza amortiguación:\\
+$\qquad b\dot{x}(t)$\\
+Constante de amortiguamiento: $b$\\
+$\qquad \gamma = \frac{b}{2m}$ (en el libro $\gamma = \frac{b}{m}$)\\
+Frecuencia natural del sistema:\\
+$\qquad \omega_0^2 = \frac{k}{m}$\\
+Frecuencia de amortiguamiento:\\
+$\qquad \omega_\gamma = \sqrt{\omega_0^2-\gamma^2}$\\
+Solución general:\\
+$\qquad \ddot{x}(t) + 2\gamma\dot{x}(t) + \omega_0^2x(t) = 0$\\
+Tres casos:\\
+\begin{itemize}
+  \item Amortiguamiento subcrítico (\textbf{oscila}): $\omega_0^2>\gamma^2;\quad\omega_\gamma\in\mathbb{R}$
+  \item Amortiguamiento crítico (\textbf{no oscila}): $\omega_0^2=\gamma^2;\quad\omega_\gamma=0$
+  \item Amortiguamiento supercrítico (\textbf{no oscila}): $\omega_0^2<\gamma^2;\quad\omega_\gamma\in\mathbb{C}$
+\end{itemize}
+
+\textbf{Resolución de problemas}:
+\begin{itemize}
+  \item Dibujar el \textbf{diagrama del sistema libre}
+  \item Obtener la \textbf{ecuación del movimiento} (Newton or Lagrange):\\
+        $m\ddot{x}+b\dot{x}+kx=0$
+  \item Obtener la \textbf{ecuación canónica}:\\
+        $\ddot{x}+\frac{b}{m}\dot{x}+\frac{k}{m}x=0$
+  \item Obtener $\omega_0$ y $\xi$:\\
+        $\omega_0=\sqrt{\frac{k}{m}}$\\
+        $\xi=\frac{\gamma}{\omega_0}=\frac{b}{2m\omega_0}$
+  \item Aplicar solución:
+        \begin{itemize}
+          \item Subcrítico $\xi<1$:\\
+                $x(t)=Ce^{-\xi \omega_0t}\sin\left(\omega_0t+\delta\right)$
+          \item Crítico $\xi=1$:\\
+                $x(t)=(C_1+C_2t)e^{-\omega_0t}$
+          \item Supercrítico $\xi=1$:\\
+                $x(t)=C_1e^{-\vert\lambda_1\vert t}+C_2e^{-\vert\lambda_2\vert t}$
+        \end{itemize}
+\end{itemize}
+
+
+\textbf{Detalles para amortiguamiento subcrítico:}\\
+$C$ y $\delta$ se obtienen de las condiciones iniciales:
+$\qquad x(t)=Ce^{-\gamma t}\sen(\omega_\gamma t+\delta)$\\
+$\qquad C^2=x_0^2+\frac{\left(v_0+\gamma x_0\right)^2}{\omega_\gamma^2}$\\
+$\qquad \tan\delta=\frac{\omega_\gamma x_0}{v_0+\gamma x_0}$\\
+$\qquad T_\gamma=\frac{2\pi}{\omega_\gamma}$\\
+Tiempo de relajación:\\
+$\qquad\tau=\frac{1}{\gamma}$\\
+Decremento logarítmico en amplitud:\\
+$\qquad\Delta=\frac{T_\gamma}{\tau}=2\pi\frac{\gamma}{\omega_\gamma}\equiv\ln{\left(\frac{x(t)}{x(t+T_\gamma)}\right)}$\\
+Coeficiente de amortiguación: \\
+$\qquad\zeta\equiv\frac{\gamma}{\omega_0}=\frac{\Delta}{\sqrt{(2\pi)^2+\Delta^2}} $\\
+Energía:\\
+$\qquad E(t)=\frac{1}{2}kA(t)^2=E_0e^{-2\gamma t}$\\
+\textit{Nota: $2\gamma$ ($\gamma$ en el libro) es el tiempo necesario para reducir la energía en un factor $e^{-1}$}\\
+Factor de calidad: \\
+$\qquad Q=\frac{1}{2}\frac{\omega_0}{\gamma}=2\pi\frac{E(t)}{E(t+T)}$
+
+\hfill\\
+\textbf{Oscilaciones Forzadas}:\\
+Forzamiento: \\
+$\qquad F=F_0\cos\left(\omega t+\alpha_0\right)$\\
+Solución:\\
+$\qquad m\ddot{x}(t)+b\dot{x}(t)+kx(t) = F_0\cos\left(\omega t+\alpha_0\right)$\\
+$\qquad\ddot{x}(t)+2\gamma\dot{x}(t)+\omega_0^2x(t)=g(t)$\\
+$\qquad g(t)=\frac{F_0}{m}\cos\left(\omega t+\alpha_0\right)$\\
+$\qquad\qquad=g_0\cos\left(\omega t+\alpha_0\right)$\\
+
+La solución tiene dos partes, una homogénea ($x_h(t)$, misma que el amortiguado) y una no homogénea ($x_p(t)$):\\
+$\qquad x(t)=x_h(t)+x_p(t)$\\
+$\qquad x_h(t)=x_\text{transitoria}=Ce^{-\gamma t}\cos\left(\omega_\gamma t+\delta\right)$\\
+$\qquad x_p(t)=x_\text{estacionaria}=$\\
+$\qquad \frac{g_0}{\sqrt{\left(\omega_0^2-\omega^2\right)^2+4\gamma^2\omega^2}}\cos\left(\omega t+\alpha_0-\beta\right)$\\
+$\qquad \beta=\arctan\left(\frac{2\gamma\omega}{\omega_0^2-\omega^2}\right)$\\
+Potencia (máxima cuando $F$ y $v$ en fase -> resonancia): $P=Fv$\\
+Factor de amplificación: \\
+$\qquad\frac{A}{g_0}=\frac{1}{\sqrt{\left(\omega_0^2-\omega^2\right)+4\gamma^2\omega^2}}$\\
+Deformación estática: \\
+$\qquad \delta_\text{est}=\frac{F_0}{k}$\\
+Factor dinámico de amplificación: \\
+$\qquad F_\text{amplif}=\frac{A}{\delta_\text{est}}$\\
+
+\section{Modos normales en sistemas contínuos}
+\textbf{Densidad de masa:} \\
+$\qquad \mu=\frac{M}{L}$\\
+\textbf{Frecuencia angular normal:}\\
+$\qquad\omega_n=\frac{n\pi}{L}v=\frac{n\pi}{L}\sqrt{\frac{T}{\mu}}$\\
+\textbf{Velocidad normal:} \\
+$\qquad v=\sqrt{\frac{T}{\mu}}$\\
+\textbf{Ciclos por unidad de tiempo:} \\
+$\qquad \nu_n=\frac{nv}{2L}$\\
+\textbf{Longitud de onda:} \\
+$\qquad \lambda_n=\frac{2L}{n}=\frac{\omega_n}{v}$\\
+\textbf{Energía cinética:}\\
+$\qquad Ec=\frac{1}{2}\int_0^L{\mu\left(\pdv{y(x,t)}{t}\right)^2dx}$
+$\qquad E_{tot}=\sum_{n=0}{N}E_{\text{tot del modo n}}$
+
+\hfill\\
+\textbf{Solución general:} \\
+$\qquad\pdv[2]{y}{t}=v^2\pdv[2]{y}{x}$\\
+$\qquad y(x,t)=C\sen(\frac{\omega}{v}x+\alpha)\cos(\omega t+\beta)$\\
+
+\hfill\\
+\textbf{Movimiento de la cuerda libre, solución:}
+$\qquad y(x,t)=\sum_{n=1}^{\infty} A_n\sen\left(\frac{2\pi x}{\lambda_n}\right)\cos \omega_nt$ \\
+$\qquad y(x,t)=\sum_{n=1}^{\infty} A_n\sen\left(\frac{\omega_n x}{v_n}\right)\cos \omega_nt$\\
+\textbf{Restricciones}:\\
+Si el lado es libre ($x=L$), es máximo: \\
+$\qquad \left(\pdv{y(x,t)}{x}\right)_{x=L}=0$\\
+Si el lado ($x=L$) está anclado, no se mueve:\\
+$\qquad y(L,t)=0$\\
+Si el lado ($x=L$) está forzado:\\
+$\qquad y(L,t)=F$\\
+
+\hfill\\
+\textbf{Movimiento de la cuerda forzada en un extremo}\\
+Lado forzado: $y(0,t) = B\cos\omega t$\\
+Lado anclado: $y(L,t) = 0$\\
+Solución:\\
+$\qquad f(x)=Asin\left(\frac{wL}{v}+\alpha\right)$\\
+$\qquad A=\frac{B}{\sin\left(p\pi-\frac{\omega L}{v}\right)}$\\
+
+\hfill\\
+\textbf{Movimiento de una barra anclada en un extremo:}\\
+Velocidad: $v=\sqrt{\frac{Y}{\rho}}$\\
+$\qquad f(x)=A\sin\left(\frac{\omega x}{v}\right)$\\
+
+frecuencias naturales (nu $\nu$):\\
+$\qquad \nu_n=\frac{\left(n-\frac{1}{2}\right)v}{2L}=\frac{2n-1}{4L}\left(\frac{Y}{\rho}\right)^{\frac{1}{2}}$\\
+
+\hfill\\
+\textbf{Movimiento de un tubo de aire:}\\
+Velocidad: $v=\sqrt{\frac{P\gamma}{\rho}}$\\
+Donde $1<\gamma<\frac{5}{3}$ es el coeficiente de adiabáticas.\\
+
+\hfill\\
+\textbf{Desarrollo de Fourier}:\\
+$\qquad y(x)=\sum_{n}^{\infty} B_n\sin{\frac{n\pi x}{L}}$\\
+
+Donde:\\
+$\qquad B_n=\frac{2}{L}\int_{0}^{L}y(x)\sin{\frac{n\pi x}{L}}dx$\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Extras:}\\
+Aproximaciones para ángulos pequeños:\\
+$\qquad\sen(\theta)=\theta$\\
+$\qquad\cos(\theta)=1$\\
+Integración por partes:\\
+$\qquad \int udv=uv-\int vdu$\\
+Multiplicación seno/coseno (para ángulo doble usa $B=A$):\\
+$\qquad \sin A\cos B=\frac{\sen(A+B)+\sen(A-B)}{2}$\\
+$\qquad \cos A\sin B=\frac{\sen(A+B)-\sen(A-B)}{2}$\\
+$\qquad \cos A\cos B=\frac{\cos(A+B)+\cos(A-B)}{2}$\\
+$\qquad \sin A\sin B=\frac{\cos(A+B)-\cos(A-B)}{2}$\\
+Series de Taylor (para polinomizar una ecuación):\\
+$\qquad f(b)=\sum_{n = 0}^{\infty}\frac{f^{(n)}(b)}{n!}(x-b)^n$\\
+
+\textbf{Momentos inerciales:}\\
+Disco: $I=\frac{mR^2}{2}$\\
+
+
+
+\end{document}
