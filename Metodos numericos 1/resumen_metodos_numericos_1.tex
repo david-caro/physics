@@ -1,0 +1,165 @@
+\documentclass[a4paper,landscape,10pt]{cheatsheet}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{bookmark}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{float}
+
+%addtolength{\oddsidemargin}{.875in}
+%addtolength{\evensidemargin}{.875in}
+%addtolength{\textwidth}{1.75in}
+%addtolength{\topmargin}{.875in}
+%\addtolength{\textheight}{1.75in}
+
+\title{Métodos Numéricos I}
+\author{David Caro}
+\date{04-23-2022}
+
+\pdfinfo{%
+  /Title    (Métodos Numéricos I)
+  /Author   (David Caro)
+  /Creator  (David Caro)
+  /Producer (David Caro)
+  /Subject  (Física)
+  /Keywords ()
+}
+
+\begin{document}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ecuaciones diferenciales de primer orden}
+\textbf{Variables separadas}:\\
+$\qquad f(y)dy=g(x)dx$\\
+Solución:\\
+$\qquad \int f(y)dy=\int g(x)dx$\\
+$\qquad F(y)=H(x)+C$\\
+
+\hfill\\
+\textbf{Reducibles a variables separadas}:\\
+$\qquad \frac{dy}{dx}=f(ax+by+c)$\\
+Solución, cambio de variable:\\
+$\qquad z=ax+by+c$\\
+$\qquad y=\frac{z-ax-c}{b}$\\
+$\qquad \frac{dy}{dx}=\frac{1}{b}\left(\frac{dz}{dx}-a\right)$\\
+$\qquad \frac{1}{b}\left(\frac{dz}{dx}-a\right)=f(z)$  <- Variables separadas!\\
+\qquad\textbf{Nota:} deshacer el cambio de variable al final ($z=ax+by+c$)
+
+
+\hfill\\
+\textbf{Exactas}:\\
+$\qquad M(x,y)dx+N(x,y)dy=0$\\
+$\qquad :\frac{\partial M(x,y)}{\partial y}=\frac{\partial N(x,y)}{\partial x}$\\
+Solución:\\
+$\qquad \int M(x,y)dx + \int\left(N(x,y)-\frac{\partial}{\partial y}\int M(x,y)dx\right)dy = 0$\\
+
+\hfill\\
+\textbf{Reducibles a exactas}:\\
+$\qquad M(x,y)dx+N(x,y)dy=0$\\
+$\qquad :\frac{\partial M(x,y)}{\partial y}\neq\frac{\partial N(x,y)}{\partial x}$\\
+Solución:\\
+$\qquad \mu(x,y)M(x,y)dx+\mu(x,y)N(x,y)dy=0$\\
+\begin{itemize}
+  \item Si $\frac{1}{N}\left[\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}\right]=f(x)$\\
+        $=> \mu(x,y)=e^{\int f(x)dx}$
+  \item Si $-\frac{1}{M}\left[\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}\right]=f(y)$\\
+        $=> \mu(x,y)=e^{\int f(y)dy}$
+\end{itemize}
+
+\hfill\\
+\textbf{Lineales}:\\
+$\qquad a_1(x)\frac{dy}{dx}+a_0(x)y=b(x)$\\
+Solución:\\
+\begin{itemize}
+  \item $a_0=0 => y(x)=\int\frac{b(x)}{a_1(x)}dx$ (siempre que $a_1(x)$ no se anule)\\
+  \item $a_0=a'_1 $\\$=> y(x)=\frac{1}{a_1(x)}\{\int b(x)dx+C\}$\\
+\end{itemize}
+
+\hfill\\
+\textbf{Reducibles a lineales}:\\
+$\qquad a_1(x)\frac{dy}{dx}+a_0(x)y=b(x) \equiv \frac{dy}{dx}+P(x)y=Q(x)$\\
+Solución (resolviendo como exacta, pero queda una fórmula más sencilla):\\
+$\qquad y(x)=$\\
+$\qquad e^{-\int P(x)dx}\cdot\left[\int e^{\int P(x)dx}\cdot Q(x)dx + C\right]$\\
+
+\hfill\\
+\textbf{De Bernoulli}:\\
+$\qquad \frac{dy}{dx}+P(x)y=Q(x)y^n$\\
+Solución:\\
+\begin{itemize}
+  \item Si $n\in\{0,1\}$ -> lineal\\
+  \item Si no, sustituir $v=y^{1-n} \implies \frac{dv}{dx}=(1-n)y^-n\frac{dy}{dx}$
+        \\ Quedando la ecuacion lineal:
+        \\$\frac{1}{1-n}\frac{dv}{dx}+P(x)v=Q(x)$
+\end{itemize}
+
+\hfill\\
+\textbf{De Riccati}:\\
+$\qquad \frac{dy}{dx}+P(x)y+Q(x)y^2=f(x)$\\
+Solución:\\
+\qquad\textbf{Necesitamos} saber una solución $y_1(x)$\\
+\qquad Usamos el cambio de variable $y=y_1+z$\\
+\qquad Queda una ecuación de Bernoulli: \\
+$\qquad\quad \frac{dz}{dx}+\left[P(x)+2y_1(x)\right]z=-Q(x)z^2$\\
+
+\hfill\\
+\textbf{Homogéneas}:\\
+$\qquad \frac{dy}{dx}=f(x,y)$\\
+$\qquad\quad | \quad f(x,y)=f(\lambda x, \lambda y)$\\
+Solución:\\
+$\qquad z=\frac{y}{x}$ -> Se convierte en variables separadas\\
+$\qquad\qquad \frac{dy}{dx}=v+x\frac{dv}{dx}$
+
+\hfill\\
+\textbf{Reducibles a homogéneas}:\\
+$\qquad \frac{dy}{dx}=f(\frac{a_1x+b_1y+c_1}{a_2x+b_2y+c_2})$\\
+Solución:\\
+\qquad Usar el cambio de variables:\\
+$\qquad\qquad X=x-x_0$\\
+$\qquad\qquad Y=y-y_0$\\
+\qquad Donde $(x_0,y_0)$ es el punto de intersección de:\\
+$\qquad\begin{cases}
+    a_1x+b_1y+c_1=0 \\
+    a_2x+b_2y+c_2=0 \\
+  \end{cases}
+$\\
+
+
+\hfill\\
+\textbf{De Clairaut}:\\
+$\qquad y=x\frac{dy}{dx}+f(\frac{dy}{dx})$\\
+Solución:\\
+\begin{itemize}
+  \item Al derivar respecto de x:\\
+        $x+f'(\frac{dy}{dx})\frac{d^2y}{dx^2}=0$\\
+  \item queda que:\\
+        \begin{itemize}
+          \item $\frac{d^2y}{dx}=0\implies\frac{dy}{dx}=c$
+          \item ó $f'(\frac{dy}{dx})=-x$
+        \end{itemize}
+  \item Sustituyendo la primera tenemos las rectas envolventes (\textbf{solución general}):\\
+        $y=cx+f'(c)$\\
+  \item Sustituyendo la segunda tenemos la \textbf{solución singular} paramétrica:\\
+        $
+          \begin{cases}
+            x(p)=-f'(p)      \\
+            y(p)=f(p)-pf'(p) \\
+          \end{cases}
+        $\\
+        Despejando $x$ respecto $p$ y sustituyendo obtendremos una fórmula dependiente de $x$ e $y$.
+\end{itemize}
+
+
+\hfill\\
+\textbf{Trayectorias ortogonales}:\\
+Dado $F(x,y)=C$, las trayectorias ortogonales vienen dadas por la solución de la EDO:\\
+$\qquad \frac{dy}{dx}=\frac{F_x(x,y)}{F_y(x,y)}$\\
+
+
+\end{document}
