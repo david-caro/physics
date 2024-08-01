@@ -161,5 +161,116 @@ Solución:\\
 Dado $F(x,y)=C$, las trayectorias ortogonales vienen dadas por la solución de la EDO:\\
 $\qquad \frac{dy}{dx}=\frac{F_x(x,y)}{F_y(x,y)}$\\
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ecuaciones diferenciales de segundo orden}
+$\qquad y''+p(t)y'+q(t)y=r(t)$\\
+$\qquad\qquad r(t)=0$:\\
+\qquad\qquad\quad => Homogénea\\
+$\qquad\qquad p(t),q(t) = \text{ctes}$:\\
+\qquad\qquad\quad => ED de coeficientes constantes\\
+
+\hfill\\
+\textbf{Wronskiano}, permite chequear la independencia lineal de funciones si $W(y_1,...,y_k)\neq 0$, dado:
+$\qquad W(y_1,...,y_k)=
+  \begin{vmatrix*}
+    y_1 & ... & y_k\\
+    ... & ... & ...\\
+    y^{(k-1)}_1 & ... & y^{(k-1)}_k \\
+  \end{vmatrix*}
+$
+
+\textbf{Wronskiano de k}, se usa en \textbf{variación de parámetros}:\\
+$\qquad W_n(y_1,...,y_k)=
+  \begin{vmatrix*}
+    y_1 & ... & y_{n} &  0 & ... & y_k\\
+    ... & ... & ... & 0 & ... & ...\\
+    y^{(k-1)}_1 & ... & ... & f(x) & ... & y^{(k-1)}_k \\
+  \end{vmatrix*}
+$
+
+\hfill\\
+\textbf{Lineal homogénea}:\\
+$\qquad y''+P(x)y'+Q(x)=0$\\
+Solución tiene forma:\\
+$\qquad y(x)=c_1(x)y_1(x)+c_2(x)y_2(x)$\\
+Dada $y_1$, podemos encontrar $y_2$ con:\\
+$\qquad y_2(x)=y_1(x)\int\frac{e^{-\int p(x)dx}}{[y_1(x)]^2}dx$
+
+\hfill\\
+\textbf{Lineal homogénea de coef. constantes}:\\
+$\qquad ay''+by'+cy=0$\\
+Equación característica:\\
+$\qquad ar^2+br+c=0$\\
+Solución:\\
+$\Delta = b^2-4ac$\\
+\qquad Tres casos:
+\begin{itemize}
+  \item $\Delta>0$\\
+        $r_1 \neq r_2$\\
+        $y(x)=C_1e^{r_1x}+C_2e^{r_2x}$\\
+  \item $\Delta=0$\\
+        $r_1 = r_2$\\
+        $y(x)=(C_1+xC_2)e^{rx}$\\
+  \item $\Delta<0$\\
+        $r=\alpha\pm\beta i$\\
+        $y(x)=e^{\alpha x}\left[C_1\cos(\beta x)+C_2\sin(\beta x)\right]$\\
+\end{itemize}
+
+\hfill\\
+\textbf{Lineal homogénea de coef. variables}:\\
+$\qquad y''+P(x)y'+Q(x)y=0$\\
+Equación característica:\\
+$\qquad r^2+P(x)r+Q(x)=0$\\
+Solución:\\
+$\qquad y(x)=c_1y_1(x)+c_2y_2(x)$\\
+TODO\\
+\qquad
+
+\hfill\\
+\textbf{Lineal no homogénea}:\\
+$\qquad y''+P(x)y'+Q(x)=f(x)$\\
+Solución tiene la forma:\\
+$\qquad y(x)=y_h(x) + y_p(x)$\\
+\qquad Donde:\\
+\qquad\qquad $\cdot$ $y_h(x)$ -> Solución homogénea (sabemos sacarla)\\
+\qquad\qquad\qquad ($y''+P(x)y'+Q(x)=0$)\\
+\qquad\qquad $\cdot$ $y_p(x)$ -> Solución particular (veremos como)\\
+
+
+\hfill\\
+\textbf{Superposición:}\\
+$\qquad y''+P(x)y'+Q(x)y=R_1(x)+R_2(x)$\\
+Solución:\\
+$\qquad y(x)=y_h(x) + y_{p1}(x) + y_{p2}(x)$\\
+\qquad\qquad Donde $y_{p1}$ es la solución de\\
+$\qquad\qquad y''+P(x)y'+Q(x)y=R_1(x)$\\
+\qquad\qquad y $y_{p2}$ es la solución de \\
+$\qquad\qquad y''+P(x)y'+Q(x)y=R_2(x)$\\
+
+\hfill\\
+\textbf{Lineal no homogénea de coef. constantes}:\\
+$\qquad a_ky^{n-1}+..+cy=f(x)$\\
+Solución:\\
+$\qquad y(x)=y_h(x)+y_p(x)$\\
+Para $y_p$ podemos usar \textit{coeficientes indeterminados}\\
+
+\hfill\\
+\textbf{Método de los coeficientes indeterminados}, para encontrar la solución particular $y_p$:\\
+Sólo aplica si:\\
+\qquad $\cdot$ ED lineal no homogénea de coef. constantes.\\
+\qquad $\cdot$ $f(x)$ es uno de $P_m(x)$ (polinomio de grado $m$), $e^{rx}$, $\cos kx$ o $\sen kx$.\\
+
+\hfill\\
+\textbf{Lineal no homogénea de coef. variables}:\\
+$\qquad y''+y'+Q(x)y=R(x)$\\
+Solución:\\
+$\qquad y(x)=y_h(x)+y_p(x)$\\
+Para $y_p$ podemos usar \textit{variación de parámetros}\\
+
+
+\hfill\\
+\textbf{Método de variación de parámetros}, para encontrar la solución particular $y_p$, más complicado que coeficientes indeterminados:\\
+$y_p(x)=\sum_{k=1}^ny_k(x)\int\frac{W_k(x)}{W[y_1,...,y_n](x)}dx$\\
+
 
 \end{document}
