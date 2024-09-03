@@ -1,0 +1,97 @@
+\documentclass[a4paper,landscape,10pt]{cheatsheet}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{bookmark}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[rightcaption]{sidecap}
+
+%addtolength{\oddsidemargin}{.875in} addtolength{\evensidemargin}{.875in} addtolength{\textwidth}{1.75in}
+%addtolength{\topmargin}{.875in} \addtolength{\textheight}{1.75in}
+
+\title{Physical mechanics}
+\author{David Caro}
+\date{09-01-2024}
+
+\pdfinfo{%
+  /Title    (Physical mechanics)
+  /Author   (David Caro)
+  /Creator  (David Caro)
+  /Producer (David Caro)
+  /Subject  (Physics)
+  /Keywords ()
+}
+
+\begin{document}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{1 Cinematics}
+Having:
+\begin{itemize}
+  \item $\mathcal{R}$ as rotation matrix of $S'$ seen from $S$
+  \item $\bf{R}$ the relative position of $S'$ seen from $S$
+\end{itemize}
+the space coordinates of a point are:
+\begin{gather*}
+  r = \mathcal{R}^T r' + \bf{R} \\
+  r'= \mathcal{R}(r - \bf{R})
+\end{gather*}
+
+We can then define the antisymmetric \textbf{angular momentum matrices} as:
+\begin{gather*}
+  \hat{w} = \mathcal{\dot{R}}^T\mathcal{R} = \begin{pmatrix}
+    0    & -w_z & w_y  \\
+    w_z  & 0    & -w_x \\
+    -w_y & w_x  & 0
+  \end{pmatrix} \\
+  \hat{w}' = \mathcal{R}\mathcal{\dot{R}}^T = \begin{pmatrix}
+    0     & -w'_z & w'_y  \\
+    w'_z  & 0     & -w'_x \\
+    -w'_y & w'_x  & 0
+  \end{pmatrix}
+\end{gather*}
+
+And the a can then define the dual vectors too:
+\begin{gather*}
+  w = (w_x, w_y, w_z)\\
+  w' = (w'_x, w'_y, w'_z)\\
+\end{gather*}
+
+We get the relationships:
+\begin{gather*}
+  \hat{w}q = w \cross q \\
+  \hat{w}'q = w' \cross q \\
+  \hat{w} = \mathcal{R}^T\hat{w}'\mathcal{R} \\
+  \hat{w}' = \mathcal{R}\hat{w}
+\end{gather*}
+
+Defining $\textbf{V}$ as the speed of $S'$ as seen from $S$, we have the velocities (deriving the position one):
+\begin{gather*}
+  v=\mathcal{R}^T(v'+w'\cross r') + \textbf{V} \\
+  v'=\mathcal{R}[v-\textbf{V}-w\cross(r-\textbf{R})]
+\end{gather*}
+
+Then with $\alpha$ as the angular acceleration, $A$ as the acceleration of $S'$ as seen by $S$, and deriving this once more we get the acceleration:
+\begin{gather*}
+  a' = -\alpha'\cross r' \text{; acimutal}\\
+  \quad\quad - 2w'\cross v' \text{; coriolis}\\
+  \quad\quad - w'\cross (w'\cross r') \text{; centrifugal}\\
+  \quad\quad + \mathcal{R}a \\
+  \quad\quad -\mathcal{R}\textbf{A} \text{; drag}\\
+  \\
+  a = \textbf{A} + \mathcal{R}^T[a' \\
+  \quad\quad +\alpha'\cross r' \\
+  \quad\quad + 1w'\cross v' \\
+  \quad\quad + w'\cross (w'\cross r')] \\
+\end{gather*}
+
+
+
+\end{document}
