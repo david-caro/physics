@@ -93,5 +93,78 @@ Then with $\alpha$ as the angular acceleration, $A$ as the acceleration of $S'$ 
 \end{gather*}
 
 
+\section{2 Dynamics}
+\subsection*{2.1 Newton dynamics}
+The three newton laws:
+\begin{itemize}
+  \item In absence of forces, a body remains it's constant lineal movement $\bf{p} = m\bf{v}$:
+        $$
+          \bf{0} = \derivative{}{t}\bf{p} \longrightarrow \bf{p} = \text{ct.}
+        $$
+  \item The change of lineal momentum is given by the force that acts on a body:
+        $$
+          \bf{F} = \derivative{}{t}\bf{p}; \quad m=\text{ct.} \rightarrow \bf{F} = m\bf{a}
+        $$
+  \item Given two particles that interact, the force on particle 1 is the same strength and opposite sign than the force
+        on particle 2.
+        $$
+          \bf{F}_1 = -\bf{F}_2
+        $$
+\end{itemize}
 
+\subsection*{2.2 Common differential equations and solutions}
+Common types of problems and their differential equations and solutions:
+\begin{itemize}
+  \item Uniform rectilinear movement:
+        $$
+          \ddot{q} = 0 \longrightarrow q(t) = q_0 + \dot{q}_0 t
+        $$
+  \item Uniformly accelerated movement:
+        $$
+          \ddot{q} = a \longrightarrow q(t) = q_0 + \dot{q}_0 t + \frac{1}{2}at^2
+        $$
+  \item Uniformly accelerated with friction:
+        $$
+          \ddot{q} = a - b\dot{q} \longrightarrow \dot{q}(t) = \frac{a}{b} + \left(\dot{q}_0 - \frac{a}{b}\right)e^{-bt}
+        $$
+        Where $a/b$ is the limit speed.
+  \item Harmonic oscillator:
+        \begin{gather*}
+          \ddot{q} + \omega^2 q=0 \rightarrow                             \\
+          q(t)=\frac{\dot{q}_0}{\omega}\sin(\omega t) + q_0\cos(\omega t) \\
+          \quad = A\sin(\omega t+\phi)
+        \end{gather*}
+        Where
+        \begin{gather*}
+          A=\sqrt{q^2_0 + \frac{\dot{q}^2_0}{\omega^2}} \\
+          \phi = \arccos\frac{\dot{q}_0}{\sqrt{q^2_0\omega^2+\dot{q}^2_0}}
+        \end{gather*}
+  \item Charged particle in an electric and magnetic field:
+        \begin{gather*}
+          \bf{F} = q\bf{E}+q\bf{v}\cross\bf{B} \quad\text{(Lorentz force)} \\
+        \end{gather*}
+        Ends up creating a spiral with the axes perpendicular to the magnetic field, that with a frequency $\omega_c$
+        called \textbf{cyclotronic frequency}, and a constant modulo of the speed.
+\end{itemize}
+
+\subsection*{2.3 Non-inertial reference frames}
+When applying newton dynamics from the point of view of a non-inertial reference frame, we get fictional forces:
+\begin{gather*}
+  m\bf{a}' = \bf{F}' \quad ;\mathcal{R}\bf{F}\\
+  \qquad -m\mathcal{R}\bf{A} \quad ;\bf{F}'_\text{drag}\\
+  \qquad -m\boldsymbol{\dot{\omega}}'\cross \bf{r}' \quad ;\bf{F}'_\text{acimutal}\\
+  \qquad - 2m\boldsymbol{\omega}'\cross\bf{v}' \quad ;\bf{F}'_{\text{Coriolis}}\\
+  \qquad -m\boldsymbol{\omega}'\cross(\boldsymbol{\omega}'\cross\bf{r}')  \quad ;\bf{F}'_{\text{centrifugal}}
+\end{gather*}
+
+Then, for a particle on the surface of earth we have:
+\begin{gather*}
+  \bf{a}' = \frac{1}{m}\mathcal{R}\bf{F}_\text{ng} + \textbf{g}'_\text{effective} - 2\boldsymbol{\omega}'\cross \textbf{v}' \\
+\end{gather*}
+where $\bf{F}_\text{ng}$ is the non-gravitational force and the effective gravitational acceleration is:
+\begin{gather*}
+  \bf{g}'_\text{effective} = (-\omega^2_T R_T \cos\lambda\sen\lambda)\textbf{e}'_y \\
+  \quad + (-g + \omega^2_T R_T \cos^2\lambda)\bf{e}'_z
+\end{gather*}
+Where $\lambda$ is the latitude.
 \end{document}
