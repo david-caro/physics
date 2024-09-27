@@ -175,34 +175,35 @@ Note that for non-euclidean coordinates we have different $d\mathcal{V}$, so the
 (generic volume integrals):
 \begin{itemize}
   \item Cylindrical (for cylinder of radius R and height Z):
-    $$
-    \quad \int_{0}^{R}\int_{0}^{Z}\int_{0}^{2\pi}r \quad d\Theta dz dr
-    $$
+        $$
+          \quad \int_{0}^{R}\int_{0}^{Z}\int_{0}^{2\pi}r \quad d\Theta dz dr
+        $$
   \item Spherical, for sphere of radius R:
-    $$
-    \quad \int_{0}^{R}\int_{0}^{2\pi}\int_{0}^{\pi}r^2\sin{\varphi} \quad d\varphi d\Theta dr 
-    $$
+        $$
+          \quad \int_{0}^{R}\int_{0}^{2\pi}\int_{0}^{\pi}r^2\sin{\varphi} \quad d\varphi d\Theta dr
+        $$
 \end{itemize}
 
 \subsection*{3.2 Inertia tensor}
 Symmetric tensor, defined as:
+
 \begin{gather*}
   \textbf{I} \equiv \sum_{i=1}^{N} m_i\textbf{r}_i^2\mathcal{I} - \sum_{i}^{N}m_i\textbf{r}_i\textbf{r}_i^T\\
-  \textbf{I} \equiv \int_{\mathcal{V}} \rho\textbf{r}^2\mathcal{I} - \sum_{i}^{N}m_i\textbf{r}_i\textbf{r}_i^T\\
 \end{gather*}
+
 In matrix form (if integrating, replace sum by volume/surface integral):
 $$
-\sum_{i=1}^{N}
-\begin{pmatrix*}
-  y_i^2 + z_i^2 & -x_i y_i & -x_i z_i \\
-  -x_i y_i & x_i^2 + z_i^2 & -y_i z_i \\
-  -x_i z_i & -y_i z_i & x_i^2 + y_i^2 \\
-\end{pmatrix*}
+  \sum_{i=1}^{N}
+  \begin{pmatrix*}
+    y_i^2 + z_i^2 & -x_i y_i & -x_i z_i \\
+    -x_i y_i & x_i^2 + z_i^2 & -y_i z_i \\
+    -x_i z_i & -y_i z_i & x_i^2 + y_i^2 \\
+  \end{pmatrix*}
 $$
 
 And coordinate integral form (as before, keep in mind the coordinates for the integral):
 \begin{gather*}
-I_{\alpha\beta} = \int_{\mathcal{V}}\rho(\textbf{r})[\delta_{\alpha\beta}r^2-r^\alpha r^\beta]d\mathcal{V}
+  I_{\alpha\beta} = \int_{\mathcal{V}}\rho(\textbf{r})[\delta_{\alpha\beta}r^2-r^\alpha r^\beta]d\mathcal{V}
 \end{gather*}
 
 $I_{xx}$, $I_{yy}$ and $I_{zz}$ are called \textbf{moments of inertia with respect to the axis}. While the non-diagonal
@@ -210,7 +211,7 @@ terms are called \textbf{products of inertia}.
 
 For \textbf{flat surfaces in the XY plane}, we have the \textbf{theorem of perpendicular axes}:
 $$
-I_{zz} = I_{xx} + I_{yy}
+  I_{zz} = I_{xx} + I_{yy}
 $$
 
 
@@ -232,39 +233,39 @@ Where we defined the \textbf{inertia tensor of the center of mass}:
 \subsection*{3.4 Particular cases}
 \begin{itemize}
   \item When $S'\equiv S''_{CM}$ has the origin in the center of mass ($\textbf{R}=\textbf{R}_{CM}$) and
-  \textbf{parallel axes to $S$}, you get the \textbf{Steiner theorem}:
-  \begin{gather*}
-    \textbf{I}=\textbf{I}''_{CM}+\textbf{I}_{M}
-  \end{gather*}
-  The inertia tensor on $S$ is equal to the inertia tensor from $S''_{CM}$ plus the inertia tensor of a single particle
-  with the same mass in the center of mass.
+        \textbf{parallel axes to $S$}, you get the \textbf{Steiner theorem}:
+        \begin{gather*}
+          \textbf{I}=\textbf{I}''_{CM}+\textbf{I}_{M}
+        \end{gather*}
+        The inertia tensor on $S$ is equal to the inertia tensor from $S''_{CM}$ plus the inertia tensor of a single particle
+        with the same mass in the center of mass.
 
   \item When only the origin is the same as the center of mass ($\textbf{R}=\textbf{R}_{CM}$), then we have the general
-  expression:
-  \begin{gather*}
-    \textbf{I}'_{CM} = \mathcal{R}\textbf{I}''_{CM}\mathcal{R}^T
-  \end{gather*}
-  Where $S''_{CM}$ is the reference system from the previous point.
+        expression:
+        \begin{gather*}
+          \textbf{I}'_{CM} = \mathcal{R}\textbf{I}''_{CM}\mathcal{R}^T
+        \end{gather*}
+        Where $S''_{CM}$ is the reference system from the previous point.
 
-  Given the \textbf{spectral decomposition theorem}, it's always possible to find a rotation matrix $\mathcal{R}$ that $\textbf{I}'_{CM} = \textbf{I}'_D$ gets
-  diagonalized. That new system is called \textbf{principal axes reference system}.
+        Given the \textbf{spectral decomposition theorem}, it's always possible to find a rotation matrix $\mathcal{R}$ that $\textbf{I}'_{CM} = \textbf{I}'_D$ gets
+        diagonalized. That new system is called \textbf{principal axes reference system}.
 \end{itemize}
 
 \subsection*{3.A1 Diagonalizing the inertia tensor}
 \begin{itemize}
   \item Build the characteristic polynomial: $\text{det}(\textbf{I} - \lambda\mathcal{I})$
   \item Make it equal to 0 and resolve (3rd degree polynomial in worst case), that gives you the \textbf{eigenvalues}
-  ($\lambda$).
+        ($\lambda$).
   \item Get each of the \textbf{eigenvectors} ($\textbf{v}$) with $\textbf{I}\textbf{v} = \lambda\textbf{v}$ for each
-  found eigenvalue $\lambda$.
+        found eigenvalue $\lambda$.
   \item Now you get the rotation matrix $\mathcal{R}$ that diagonalizes the inertia tensor by doing:
-  \begin{gather*}
-    \mathcal{R} = \begin{pmatrix*}
-      v_{1x} & v_{2x} & v_{3x} \\
-      v_{1y} & v_{2y} & v_{3y} \\
-      v_{1z} & v_{2z} & v_{3z} \\
-    \end{pmatrix*}
-  \end{gather*}
+        \begin{gather*}
+          \mathcal{R} = \begin{pmatrix*}
+            v_{1x} & v_{2x} & v_{3x} \\
+            v_{1y} & v_{2y} & v_{3y} \\
+            v_{1z} & v_{2z} & v_{3z} \\
+          \end{pmatrix*}
+        \end{gather*}
   \item And finally get the inertia tensor by applying $\textbf{I}_D = \mathcal{R}\textbf{I}\mathcal{R}^T$
 \end{itemize}
 
