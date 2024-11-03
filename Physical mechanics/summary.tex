@@ -269,4 +269,87 @@ Where we defined the \textbf{inertia tensor of the center of mass}:
   \item And finally get the inertia tensor by applying $\textbf{I}_D = \mathcal{R}\textbf{I}\mathcal{R}^T$
 \end{itemize}
 
+\section*{4. Dynamics of particle systems}
+\subsection*{4.1. Movement of the center of mass}
+From the center of mass of a system of particles, all the internal forces all cancel out, leaving only the external forces as the ones affecting
+the movement of the center of mass, so we have:
+\begin{gather*}
+  F^{ext} = M \frac{d}{dt}\textbf{V}_{CM} \\
+  \textbf{V}_{CM} = \frac{d}{dt}\textbf{R}_{CM} = \frac{1}{M}\sum_{i=1}^{N}m_i\textbf{v}_i
+\end{gather*}
+\subsection*{4.2. Conservation of linear momentum}
+Given the linear momentum:
+$$
+\textbf{P}=\sum_{i=1}^{N}m_i\textbf{v}_i \equiv M\textbf{V}_{CM}
+$$
+It's change depends only on the external forces (it is conserved if there's no external forces):
+$$
+\frac{d}{dt}\textbf{P}=\sum\textbf{F}^{ext}
+$$
+\subsection*{4.3. Conservation of angular momentum}
+Given the angular momentum:
+$$
+\textbf{L} \equiv \sum_{i=1}^{N}\textbf{r}_i\cross\textbf{p}_i
+$$
+It's change depends only on the torque:
+$$
+\frac{d}{dt}\textbf{L}=\sum_{i=1}^{N}\textbf{r}_i\cross\textbf{F}_i\equiv\textbf{N}
+$$
+If all the internal forces of the system are central forces, then the angular depends only on the external torque (if
+there's no external torque, then it's conserved):
+$$
+\frac{d}{dt}\textbf{L}=\textbf{N}^{ext}
+$$
+\subsection*{4.4. Conservation of energy}
+\textbf{Kinetic energy} is:
+$$
+T(t)\equiv\sum_{i=1}^{N}\frac{1}{2}m_i\textbf{v}^2_i(t)
+$$
+And it's variation is the \textbf{total potency}:
+$$
+P(t) \equiv \frac{dT}{dt}(t) = \sum_{i=1}^{N}\textbf{F}_i\cdot\textbf{v}_i(t)
+$$
+\textbf{Work} between times $t_1$ and $t_2$ is defined then as:
+$$
+W_(t_1\rightarrow t_2) \equiv \int_{t_1}^{t_2}P(t)dt = \int_{t_1}^{t_2}\textbf{F}(t)\frac{d\textbf{r}}{dt}(t)dt
+$$
+If all the forces that act on the particles are \textbf{conservative} forces, then we can define \textbf{potential energy} and work can also be defined as:
+$$
+W_{t_1\rightarrow t_2} \equiv V(t_1) - V(t_2)
+$$
+
+And with this two definitions, we can define the \textbf{total energy} as:
+$$
+E(t) = V(t) + T(t)
+$$
+And this is conserved when we have a system where only \textbf{conservative forces} act (the ones derived from a
+potential).
+
+\subsection*{4.5. Collisions}
+There's two main types of collisions:
+\begin{itemize}
+  \item Elastic: When the bodies don't stick together
+  \begin{itemize}
+    \item Angular momentum is conserved
+    \item Linear momentum is conserved
+    \item Energy is conserved
+  \end{itemize}
+  \item Inelastic: When the bodies get stuck together
+  \begin{itemize}
+    \item Angular momentum is conserved
+    \item Linear momentum is conserved
+    \item Energy is \textbf{not} conserved
+  \end{itemize}
+\end{itemize}
+\subsection*{4.6. Seen from the center of mass}
+\begin{gather*}
+  \textbf{P}'_{CM} = 0 \\
+  \textbf{L}'_{CM} = \mathcal{R}\left[\textbf{L} - \textbf{L}_M - \left(\textbf{I} - \textbf{I}_M\right)\boldsymbol{\omega}\right] \\
+  T'_{CM} = T - T_M - (\textbf{L}-\textbf{L}_M)\cdot\boldsymbol{\omega} + \frac{1}{2}\boldsymbol{\omega}^T(\textbf{I} - \textbf{I}_M)\boldsymbol{\omega}
+\end{gather*}
+Where $*_M$ are the entities as if there was a particle of mass $M$ at the center of mass.
+
+\section*{5. Rigid solid movement}
+
+
 \end{document}
