@@ -69,7 +69,14 @@ $\qquad\lvert\omega_1-\omega_2\rvert\ll\omega_1+\omega_2$\\
 de periodo:\\
 $\qquad T=\frac{2\pi}{\lvert\omega_1-\omega_2\lvert}=\frac{2\pi}{\omega_{\text{beat}}}=\frac{1}{\nu_{\text{beat}}}=\frac{1}{\lvert \nu_1-\nu_2\rvert}$
 \\
-\textbf{Muelles:}\\
+
+\textbf{Aproximaciones por pequeñas oscilaciones:}\\
+$\qquad \sin(\theta)\approx\theta + O_3(\theta)$\\
+$\qquad \cos(\theta)\approx1 - \frac{\theta^2}{2} + O$\\
+$\qquad \tan(\theta)\approx\theta$\\
+
+\section{Ejemplos de M.A.S.}
+\textbf{Muelle y masa:}\\
 Ley de newton:\\
 $\qquad m\frac{d^2x}{dt^2}+kx=0$\\
 Conservación de la energía:\\
@@ -77,15 +84,34 @@ $\qquad\frac{1}{2}m\left(\frac{dx}{dt}\right)^2 + \frac{1}{2}kx^2 = E = \frac{1}
 Solución general:\\
 ($\omega=\sqrt{\frac{k}{m}}$, $A$ y $\alpha$ dependen de las condiciones de contorno, son constantes de integración):\\
 $\qquad x=A\cos\left(\omega t+\alpha\right)$\\
-\textbf{Módulo de Young:}\\
-$\qquad F=-\frac{AY}{l_0}x = -kx$\\
+\textbf{Oscilaciones elásticas (módulo de Young):}\\
+$\qquad F-\frac{AY}{l_0}x = -kx$\\
 $\qquad T=2\pi\sqrt{\frac{ml_0}{AY}}=2\pi\sqrt{\frac{m}{k}}=\frac{2\pi}{\omega}=\frac{1}{\nu}$\\
-\textbf{Péndulo simple:}\\
+\textbf{Péndulo ideal:}\\
 Periodo: $T=2\pi\sqrt{\frac{h}{g}}$\\
 Frecuencia: $\omega=\sqrt{\frac{g}{h}}$\\
+\textbf{Oscilaciones de un fluido (por conservación de la energía):}\\
+$\qquad E_{\text{mecánica}}=E_{\text{cinética}}+E_{\text{potencial}} = \frac{1}{2}\rho ALv^2 + \rho Agx^2$\\
+Donde L es la longitud del tubo, x el desplazamiento del equilibro, A el área, $\rho$ la densidad, $v$ la velocidad y $g$ la aceleración de la gravedad.\\
+$\qquad \derivative{E_m}{t} = 0$\\
+$\qquad T=2\pi\sqrt{\frac{L}{2g}}$\\
+
 \textbf{Objeto flotante:}\\
 $\qquad\omega=\sqrt{\frac{g\rho A}{m}}$\\
 $\qquad T=2\pi\sqrt{\frac{m}{g\rho A}}=2\pi\sqrt{\frac{h}{g}}$\\
+siendo $A$ el area.
+
+\textbf{Circuito L-C:}\\
+Usando que $V_L=L\derivative{I}{t}=L\derivative{^2q(t)}{t^2}$ y $V_C=\frac{q(t)}{C}$, y que $V_L+V_C=V$:\\
+$\qquad \ddot{q} + \frac{1}{LC}q = 0$\\
+$\qquad T=2\pi\sqrt{LC}$\\
+siendo $A$ el area.
+
+
+\textbf{Péndulo sólido:}\\
+Aproximando para pequeñas oscilaciones, y siendo $b$ la distancia entre el eje y el centro de masas:
+$\qquad \ddot{\Theta} + \frac{bmg}{I_{P,z}}\Theta = 0$\\
+$\qquad T=2\pi\sqrt{\frac{I_{P,z}}{bmg}}$\\
 siendo $A$ el area.
 
 
@@ -330,7 +356,5 @@ $\qquad f(b)=\sum_{n = 0}^{\infty}\frac{f^{(n)}(b)}{n!}(x-b)^n$\\
 
 \textbf{Momentos inerciales:}\\
 Disco: $I=\frac{mR^2}{2}$\\
-
-
 
 \end{document}
